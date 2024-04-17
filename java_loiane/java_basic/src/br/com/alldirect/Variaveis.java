@@ -10,7 +10,7 @@ public class Variaveis {
 		
 		
 		//proibido
-		int abstract;
+		//int abstract;
 		
 		
 		
