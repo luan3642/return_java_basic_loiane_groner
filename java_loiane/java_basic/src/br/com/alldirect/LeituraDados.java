@@ -31,7 +31,7 @@ public class LeituraDados {
 		String sex = scan.next();
 		int year = scan.nextInt();
 		
-		System.out.println("primeiro nome"+ fistName);
+		System.out.println("primeiro nome "+ fistName);
 		System.out.println("voce digitou o sexo"+ sex);
 		System.out.println("voce digitou a sua idade"+ year);
 		
