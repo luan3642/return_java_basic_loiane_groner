@@ -40,11 +40,21 @@ public class Matriz {
 		};
 		
 		int soma[][] = new int[2][3];
+		double[][] multiplicaoMatriz = new double[2][3];
 		
+		System.out.println("soma:");
 		for(int i = 0; i<matriz1.length; i++) {
 			for(int j = 0; j<matriz2[i].length; j++) {
 				soma[i][j] += matriz1[i][j] + matriz2[i][j]; 
 				System.out.println(soma[i][j]);
+			}
+		}
+		System.out.println();
+		System.out.println("multiplicao:");
+		for(int i = 0; i<matriz1.length; i++) {
+			for(int j = 0; j<matriz2[i].length; j++) {
+				multiplicaoMatriz[i][j] = matriz1[i][j] * matriz2[i][j];
+				System.out.println(multiplicaoMatriz[i][j]);
 			}
 		}
 	}
