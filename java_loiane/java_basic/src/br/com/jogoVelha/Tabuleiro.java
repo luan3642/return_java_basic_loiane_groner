@@ -3,6 +3,7 @@ package br.com.jogoVelha;
 import java.util.Scanner;
 public class Tabuleiro {
 	private String[][] posicoesTabuleiro;
+	private static boolean ganhador = false;
 	private boolean campoValido = false;
 	private static int qtdeJogada = 0;
 	Scanner scan = new Scanner(System.in);
@@ -60,6 +61,7 @@ public class Tabuleiro {
 		while(!isCompleto() && qtdeJogada != 0) {
 			realizarJogada();
 			mostraTabuleiro();
+			validaGanhador();
 		}
 		
 		qtdeJogada++;
@@ -83,7 +85,8 @@ public class Tabuleiro {
 		for(int i = 0; i<posicoesTabuleiro.length; i++) {
 			for(int j = 0; j< posicoesTabuleiro[i].length; j++) {
 				if(posicoesTabuleiro[0][j] == "X") {
-					
+					System.out.println("O ganhador é o X");
+					ganhador = true;
 				}
 			}
 		}
