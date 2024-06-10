@@ -18,13 +18,15 @@ public class Tabuleiro {
 		
 	}
 	
-	public void checarPosicaoAtualTabuleiro() {
+	public boolean isCompleto() {
 		for(int i = 0; i<posicoesTabuleiro.length; i++) {
 			for(int j = 0; j<posicoesTabuleiro[i].length; j++) {
-				System.out.print(posicoesTabuleiro[i][j] + "|");
+				if(posicoesTabuleiro[i][j] == null) {
+					return false;
+				}
 			}
-			System.out.println();
 		}
+		return true;
 	}
 	
 	public void realizarJogada() {
@@ -42,13 +44,21 @@ public class Tabuleiro {
 			
 			if(checarValidadeCampo(linha, coluna)) {
 				jogadaValida = true;
+				System.out.println("escolha X ou O");
+				posicoesTabuleiro[linha][coluna] = scan.next();
 			} else {
 				System.err.println("jogada invalida, pois voce ja preencheu este campo");
 			}
 			
-			System.out.println("escolha X ou O");
-			posicoesTabuleiro[linha][coluna] = scan.next();
 		}while(!jogadaValida);
+		
+		
+	}
+	
+	public void joga() {
+		while(!isCompleto()) {
+			realizarJogada();
+		}
 	}
 	
 	
