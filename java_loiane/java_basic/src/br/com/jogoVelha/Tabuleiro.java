@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Tabuleiro {
 	private String[][] posicoesTabuleiro;
 	private boolean campoValido = false;
+	private static int qtdeJogada = 0;
 	Scanner scan = new Scanner(System.in);
 	
 	public Tabuleiro() {
@@ -45,7 +46,7 @@ public class Tabuleiro {
 			if(checarValidadeCampo(linha, coluna)) {
 				jogadaValida = true;
 				System.out.println("escolha X ou O");
-				posicoesTabuleiro[linha][coluna] = scan.next();
+				posicoesTabuleiro[linha][coluna] = scan.next().toUpperCase();
 			} else {
 				System.err.println("jogada invalida, pois voce ja preencheu este campo");
 			}
@@ -56,8 +57,35 @@ public class Tabuleiro {
 	}
 	
 	public void joga() {
-		while(!isCompleto()) {
+		while(!isCompleto() && qtdeJogada != 0) {
 			realizarJogada();
+			mostraTabuleiro();
+		}
+		
+		qtdeJogada++;
+		
+		if(qtdeJogada >1) {
+			System.out.println("jogo finalizado!");
+		}
+		
+	}
+	
+	public void mostraTabuleiro() {
+		for(int i = 0; i <posicoesTabuleiro.length; i++) {
+			for(int j = 0; j<posicoesTabuleiro[i].length; j++) {
+				System.out.print(posicoesTabuleiro[i][j] + " | ");
+			}
+			System.out.println();
+		}
+	}
+	
+	public void validaGanhador() {
+		for(int i = 0; i<posicoesTabuleiro.length; i++) {
+			for(int j = 0; j< posicoesTabuleiro[i].length; j++) {
+				if(posicoesTabuleiro[0][j] == "X") {
+					
+				}
+			}
 		}
 	}
 	

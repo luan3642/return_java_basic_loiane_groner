@@ -5,7 +5,7 @@ public class Players extends Tabuleiro {
 	
 	public Players(String nome) {
 		this.nome = nome;
-		realizarJogada();
+		joga();
 	}
 	 
 	
