@@ -1,6 +1,6 @@
 package br.com.jogoVelha;
-
 import java.util.Scanner;
+
 public class Tabuleiro {
 	private String[][] posicoesTabuleiro;
 	private static boolean ganhador = false;
@@ -58,17 +58,15 @@ public class Tabuleiro {
 	}
 	
 	public void joga() {
-		while(!isCompleto() && qtdeJogada != 0) {
+		while(!isCompleto() && !ganhador) {
 			realizarJogada();
 			mostraTabuleiro();
 			validaGanhador();
+			qtdeJogada++;
+
 		}
 		
-		qtdeJogada++;
-		
-		if(qtdeJogada >1) {
-			System.out.println("jogo finalizado!");
-		}
+		System.out.println("jogo finalizado");
 		
 	}
 	
@@ -84,7 +82,7 @@ public class Tabuleiro {
 	public void validaGanhador() {
 		for(int i = 0; i<posicoesTabuleiro.length; i++) {
 			for(int j = 0; j< posicoesTabuleiro[i].length; j++) {
-				if(posicoesTabuleiro[0][j] == "X") {
+				if(posicoesTabuleiro[0][j] != null && posicoesTabuleiro[0][j].equals("X")) {
 					System.out.println("O ganhador é o X");
 					ganhador = true;
 				}
